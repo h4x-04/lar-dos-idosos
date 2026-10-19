@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lar dos Idosos WB | Apoio e Solidariedade</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVBAR -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">🏡</span>
+        <div class="logo-text">
+          <h1>Lar dos Idosos WB</h1>
+          <p>Wenceslau Braz - PR</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#sobre">Quem Somos</a>
+        <a href="#doacoes">Como Doar</a>
+        <a href="#localizacao">Onde Estamos</a>
+        <a href="#contato" class="btn-nav">Fale Conosco</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BANNER PRINCIPAL (HERO) -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">Iniciativa Social Comunitária</span>
+      <h2>Cuidando com carinho e dignidade de quem construiu nossa história.</h2>
+      <p>Nosso lar acolhe e oferece assistência a idosos em Wenceslau Braz. Conheça nossa instituição e faça a diferença com sua doação.</p>
+      <div class="hero-actions">
+        <a href="#doacoes" class="btn btn-primary">Fazer uma Doação ❤️</a>
+        <a href="https://instagram.com/lardosidosos_wb" target="_blank" rel="noopener" class="btn btn-secondary">
+          <span>Instagram @lardosidosos_wb</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE O LAR -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Quem Somos</h2>
+        <p>Acolhimento, respeito e qualidade de vida para a melhor idade.</p>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-icon">👵👴</div>
+          <h3>Cuidado Contínuo</h3>
+          <p>Oferecemos suporte diário, alimentação balanceada e atenção humanizada a todos os nossos acolhidos.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Apoio da Comunidade</h3>
+          <p>O Lar dos Idosos WB conta com a solidariedade e generosidade dos munícipes e parceiros de Wenceslau Braz.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h3>Transparência e Afeto</h3>
+          <p>Trabalhamos com dedicação diária para manter um ambiente acolhedor, limpo, seguro e cheio de amor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENTRAL DE DOAÇÕES (DESTAQUE PRINCIPAL) -->
+  <section id="doacoes" class="section section-highlight">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-urgent">Campanha de Apoio</span>
+        <h2>Central de Doações</h2>
+        <p>Sua ajuda mantém o lar funcionando com higiene e dignidade.</p>
+      </div>
+
+      <div class="donation-grid">
+        <!-- ITEM DE MAIOR NECESSIDADE -->
+        <div class="donation-card need-card">
+          <div class="need-badge">🚨 Necessidade Urgente</div>
+          <h3>Produtos de Higiene Pessoal e Limpeza</h3>
+          <p>No momento, nossa principal necessidade diária inclui:</p>
+          <ul class="need-list">
+            <li>Sabonetes, shampoos e cremes hidratantes</li>
+            <li>Fraldas geriátricas e lenços umedecidos</li>
+            <li>Creme dental e escovas de dente</li>
+            <li>Detergentes, desinfetantes e sabão em pó</li>
+          </ul>
+          <div class="alert-box">
+            <span>ℹ️</span>
+            <div>
+              <strong>Horário de entrega preferencial:</strong><br>
+              Recebemos entregas até às 17h, preferencialmente <strong>na parte da manhã</strong> para acompanhamento direto da equipe!
+            </div>
+          </div>
+        </div>
+
+        <!-- DOAÇÃO VIA PIX -->
+        <div class="donation-card pix-card">
+          <div class="pix-badge">⚡ Doação Instantânea</div>
+          <h3>Contribua via PIX</h3>
+          <p>Qualquer valor é revertido diretamente para a manutenção do bem-estar dos idosos.</p>
+          
+          <div class="pix-box">
+            <span class="pix-label">Chave PIX Oficial (CNPJ):</span>
+            <div class="pix-input-group">
+              <input type="text" id="pixKey" value="78600939000184" readonly>
+              <button id="btnCopyPix" class="btn btn-copy" onclick="copiarPix()">Copiar Chave</button>
+            </div>
+            <span id="copyFeedback" class="copy-feedback">Chave copiada com sucesso! ✅</span>
+          </div>
+
+          <div class="pix-details">
+            <p><strong>Favorecido:</strong> Lar dos Idosos WB</p>
+            <p><strong>Tipo de Chave:</strong> CNPJ (78.600.939/0001-84)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO E HORÁRIOS -->
+  <section id="localizacao" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Onde Estamos</h2>
+        <p>Venha nos visitar ou traga sua doação presencialmente.</p>
+      </div>
+
+      <div class="location-wrapper">
+        <div class="location-info">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <h4>Endereço</h4>
+              <p>Rua Vereador Alcides da Silva Reis, nº 500<br>Vila Santa Maria — Wenceslau Braz - PR</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">⏰</span>
+            <div>
+              <h4>Horário de Recebimento de Doações</h4>
+              <p>Segunda a Domingo até às 17h<br><small><em>(Preferencialmente no período da manhã)</em></small></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📱</span>
+            <div>
+              <h4>Contato Direto</h4>
+              <p>(43) 99633-5348</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <div class="map-card">
+            <h4>Visite o Lar dos Idosos WB</h4>
+            <p>Localizado em Wenceslau Braz - PR, no bairro Vila Santa Maria.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Vereador+Alcides+da+Silva+Reis+500+Wenceslau+Braz+PR" target="_blank" rel="noopener" class="btn btn-outline">
+              Abrir no Google Maps 🗺️
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO & REDES SOCIAIS -->
+  <section id="contato" class="section section-cta">
+    <div class="container cta-content">
+      <h2>Deseja falar diretamente conosco?</h2>
+      <p>Tire dúvidas sobre doações, agendamentos de entregas ou saiba mais sobre o nosso dia a dia.</p>
+      
+      <div class="cta-buttons">
+        <a href="https://wa.me/5543996335348?text=Ol%C3%A1!%20Encontrei%20o%20site%20do%20Lar%20dos%20Idosos%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20doações." target="_blank" rel="noopener" class="btn btn-whatsapp">
+          Conversar no WhatsApp 💬
+        </a>
+        <a href="https://instagram.com/lardosidosos_wb" target="_blank" rel="noopener" class="btn btn-insta">
+          Ver fotos no Instagram 📸
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Lar dos Idosos WB — Todos os direitos reservados.</p>
+      <p><small>Desenvolvido como Projeto de Extensão Universitária • Tecnologia Aplicada à Inclusão Digital</small></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
