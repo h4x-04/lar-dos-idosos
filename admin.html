@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel da Equipe | Lar dos Idosos WB</title>
+  <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpg') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+  <header class="header admin-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo Lar dos Idosos WB" class="logo-img">
+        <div class="logo-text">
+          <h1>Lar dos Idosos WB</h1>
+          <p>Painel Administrativo de Doações (Python + SQL)</p>
+        </div>
+      </div>
+      <a href="/" class="btn btn-secondary btn-sm">← Voltar ao Portal Público</a>
+    </div>
+  </header>
+
+  <main class="container admin-container">
+    <div class="admin-title-area">
+      <h2>Controle de Intenções de Doação</h2>
+      <p>Gerenciamento em tempo real conectado ao banco de dados SQLite.</p>
+    </div>
+
+    <!-- CARDS DE ESTATÍSTICAS (SQL COUNT) -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Registrado</h3>
+        <p class="stat-number">{{ totais.total }}</p>
+      </div>
+      <div class="stat-card stat-pending">
+        <h3>Aguardando Entrega</h3>
+        <p class="stat-number">{{ totais.pendentes }}</p>
+      </div>
+      <div class="stat-card stat-received">
+        <h3>Doações Recebidas</h3>
+        <p class="stat-number">{{ totais.recebidas }}</p>
+      </div>
+    </div>
+
+    <!-- TABELA DE DOAÇÕES (SQL SELECT) -->
+    <div class="table-card">
+      <div class="table-header">
+        <h3>Lista de Doações Cadastradas</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Doador</th>
+              <th>Contato</th>
+              <th>Categoria</th>
+              <th>Descrição dos Itens</th>
+              <th>Horário</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for doacao in doacoes %}
+            <tr>
+              <td><strong>#{{ doacao['id'] }}</strong></td>
+              <td>{{ doacao['nome_doador'] }}</td>
+              <td>
+                <a href="https://wa.me/55{{ doacao['telefone'] | replace('(', '') | replace(')', '') | replace(' ', '') | replace('-', '') }}" target="_blank" class="link-tel">
+                  {{ doacao['telefone'] }} 💬
+                </a>
+              </td>
+              <td><span class="badge-tag">{{ doacao['tipo_doacao'] }}</span></td>
+              <td>{{ doacao['descricao_itens'] }}</td>
+              <td><small>{{ doacao['horario_preferencial'] }}</small></td>
+              <td>
+                {% if doacao['status'] == 'Recebido' %}
+                  <span class="status-badge status-ok">Recebido ✓</span>
+                {% else %}
+                  <span class="status-badge status-wait">Pendente ⏳</span>
+                {% endif %}
+              </td>
+              <td>
+                <div class="actions-group">
+                  {% if doacao['status'] == 'Pendente' %}
+                    <a href="/admin/status/{{ doacao['id'] }}/Recebido" class="btn btn-sm btn-action-ok">Marcar Recebido</a>
+                  {% else %}
+                    <a href="/admin/status/{{ doacao['id'] }}/Pendente" class="btn btn-sm btn-action-wait">Reabrir</a>
+                  {% endif %}
+                  <a href="/admin/excluir/{{ doacao['id'] }}" class="btn btn-sm btn-action-delete" onclick="return confirm('Deseja realmente excluir este registro?');">Excluir 🗑️</a>
+                </div>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="8" class="text-center">Nenhuma doação registrada no momento.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Lar dos Idosos WB — Módulo Administrativo • Backend Python (Flask) + SQL (SQLite)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
