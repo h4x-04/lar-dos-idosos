@@ -47,7 +47,7 @@ O projeto está alinhado diretamente com as seguintes metas globais da ONU:
 ## 💻 Como Visualizar o Projeto
 
 O portal está disponível online através do GitHub Pages:
-🔗 **[Acessar Portal do Lar dos Idosos WB](https://seu-usuario.github.io/lar-dos-idosos-wb)** *(substitua pelo seu link após publicar)*
+🔗 **[Acessar Portal do Lar dos Idosos WB](https://hax-04.github.io/lar-dos-idosos-wb)** 
 
 Caso deseje executar localmente:
 1. Clone ou baixe este repositório.
