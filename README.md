@@ -49,6 +49,17 @@ O projeto está alinhado diretamente com as seguintes metas globais da ONU:
 O portal está disponível online através do GitHub Pages:
 🔗 **[Acessar Portal do Lar dos Idosos WB](https://h4x-04.github.io/lar-dos-idosos/)** 
 
+Links para abrir o sistema no seu navegador (Python + SQL)
+
+Se você quer ver onde estão os links locais para testar o sistema no seu computador:
+
+No arquivo: iniciar_servidor.bat (ou no final do app.py)
+Quais são os links:
+Portal do Lar: http://127.0.0.1:5000
+Painel Administrativo da Equipe: http://127.0.0.1:5000/admin
+
+(Basta dar dois cliques no iniciar_servidor.bat e colar um desses links na barra do seu navegador).
+
 Caso deseje executar localmente:
 1. Clone ou baixe este repositório.
 2. Abra o arquivo `index.html` em qualquer navegador web moderno.
