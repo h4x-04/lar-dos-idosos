@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lar dos Idosos WB | Apoio e Solidariedade</title>
-  <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpg') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   <header class="header">
     <div class="container nav-container">
       <div class="logo">
-        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo Lar dos Idosos WB" class="logo-img">
+        <img src="logo.jpg" alt="Logo Lar dos Idosos WB" class="logo-img">
         <div class="logo-text">
           <h1>Lar dos Idosos WB</h1>
           <p>Wenceslau Braz - PR</p>
@@ -25,9 +25,8 @@
       <nav class="nav-links">
         <a href="#sobre">Quem Somos</a>
         <a href="#doacoes">Como Doar</a>
-        <a href="#formulario-doacao">Registrar Doação</a>
         <a href="#localizacao">Onde Estamos</a>
-      
+        <a href="#contato" class="btn-nav">Fale Conosco</a>
       </nav>
     </div>
   </header>
@@ -35,13 +34,13 @@
   <!-- BANNER PRINCIPAL (HERO) -->
   <section class="hero">
     <div class="container hero-content">
-      <span class="badge">Iniciativa de Inclusão e Extensão Universitária</span>
+      <span class="badge">Iniciativa Social Comunitária</span>
       <h2>Cuidando com carinho e dignidade de quem construiu nossa história.</h2>
-      <p>Nosso lar acolhe e oferece assistência integral a idosos em Wenceslau Braz. Faça a diferença na vida dos nossos residentes.</p>
+      <p>Nosso lar acolhe e oferece assistência a idosos em Wenceslau Braz. Conheça nossa instituição e faça a diferença com sua doação.</p>
       <div class="hero-actions">
-        <a href="#formulario-doacao" class="btn btn-primary">Registrar Intenção de Doação ❤️</a>
+        <a href="#doacoes" class="btn btn-primary">Fazer uma Doação ❤️</a>
         <a href="https://instagram.com/lardosidosos_wb" target="_blank" rel="noopener" class="btn btn-secondary">
-          Instagram @lardosidosos_wb
+          <span>Instagram @lardosidosos_wb</span>
         </a>
       </div>
     </div>
@@ -74,13 +73,13 @@
     </div>
   </section>
 
-  <!-- CENTRAL DE DOAÇÕES (DESTAQUE) -->
+  <!-- CENTRAL DE DOAÇÕES (DESTAQUE PRINCIPAL) -->
   <section id="doacoes" class="section section-highlight">
     <div class="container">
       <div class="section-header">
-        <span class="badge badge-urgent">Campanha de Apoio Prioritário</span>
+        <span class="badge badge-urgent">Campanha de Apoio</span>
         <h2>Central de Doações</h2>
-        <p>Sua ajuda mantém o lar funcionando com higiene e dignidade diária.</p>
+        <p>Sua ajuda mantém o lar funcionando com higiene e dignidade.</p>
       </div>
 
       <div class="donation-grid">
@@ -128,74 +127,8 @@
     </div>
   </section>
 
-  <!-- FORMULÁRIO DE INTENÇÃO DE DOAÇÃO (CONECTADO AO PYTHON + SQL) -->
-  <section id="formulario-doacao" class="section">
-    <div class="container form-section-container">
-      <div class="section-header">
-        <span class="badge">Registro Online Integrado</span>
-        <h2>Registrar Intenção de Doação</h2>
-        <p>Informe o que você deseja doar para que nossa equipe se prepare para receber com carinho.</p>
-      </div>
-
-      <!-- MENSAGENS FLASH DO PYTHON -->
-      {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          {% for category, message in messages %}
-            <div class="flash-alert flash-{{ category }}">{{ message }}</div>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-
-      <div class="form-card">
-        <form action="/doar" method="POST" class="donation-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nome">Seu Nome / Razão Social *</label>
-              <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
-            </div>
-            <div class="form-group">
-              <label for="telefone">WhatsApp / Telefone para contato *</label>
-              <input type="text" id="telefone" name="telefone" placeholder="Ex: (43) 99999-8888" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tipo">Categoria da Doação *</label>
-              <select id="tipo" name="tipo" required>
-                <option value="Produtos de Higiene">Produtos de Higiene (Prioridade Alta)</option>
-                <option value="Fraldas Geriátricas">Fraldas Geriátricas</option>
-                <option value="Alimentos Não Perecíveis">Alimentos Não Perecíveis</option>
-                <option value="Materiais de Limpeza">Materiais de Limpeza</option>
-                <option value="Doação Financeira (PIX)">Doação Financeira (PIX)</option>
-                <option value="Outros">Outros</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="horario">Horário Previsto para Entrega</label>
-              <select id="horario" name="horario">
-                <option value="Manhã (Preferencial - até 12h)">Manhã (Preferencial - até 12h)</option>
-                <option value="Tarde (até 17h)">Tarde (até 17h)</option>
-                <option value="Doação Online (PIX)">Doação Online (PIX)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="descricao">Descrição dos Itens / Quantidade *</label>
-            <textarea id="descricao" name="descricao" rows="3" placeholder="Ex: 5 frascos de sabonete líquido, 2 fardos de fraldas tamanho G..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-submit">
-            Confirmar e Enviar para o Lar ❤️
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <!-- LOCALIZAÇÃO E HORÁRIOS -->
-  <section id="localizacao" class="section section-highlight">
+  <section id="localizacao" class="section">
     <div class="container">
       <div class="section-header">
         <h2>Onde Estamos</h2>
@@ -263,10 +196,10 @@
   <footer class="footer">
     <div class="container footer-content">
       <p>© 2026 Lar dos Idosos WB — Todos os direitos reservados.</p>
-      <p><small>Desenvolvido com Python (Flask) e SQLite para o Projeto de Extensão Universitária • UNINTER</small></p>
+      <p><small>Desenvolvido como Projeto de Extensão Universitária • Tecnologia Aplicada à Inclusão Digital</small></p>
     </div>
   </footer>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="script.js"></script>
 </body>
 </html>
