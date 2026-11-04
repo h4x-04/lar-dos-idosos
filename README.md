@@ -53,11 +53,5 @@ Caso deseje executar localmente:
 1. Clone ou baixe este repositório.
 2. Abra o arquivo `index.html` em qualquer navegador web moderno.
 
----
 
-## 👤 Autoria
 
-* **Estudante:** [Seu Nome Completo]
-* **RU:** [Seu RU]
-* **Instituição:** Centro Universitário Internacional UNINTER
-* **Polo:** [Seu Polo / Cidade]
